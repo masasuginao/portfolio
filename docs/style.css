@@ -5,17 +5,29 @@ Description: A custom WordPress theme created by Masanao Sugimoto.
 Version: 1.0
 Text Domain: my-custom-theme
 Tags: custom-theme, wordpress, masanao-sugimoto
-*/  
+*/
 
 /* -------------------------------------------------------------------------
    1. 基本設定 (Base) - 余白のリセットとフォント定義
    ------------------------------------------------------------------------- */
+/* すべての要素のサイズ計算を「枠線込み」にする */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 :root {
-    --text-color: #333333;      /* ダークグレー（真っ黒より読みやすい） */
-    --accent-color: #413b3b;    /* 真っ黒（強調用） */
-    --bg-color: #f9f0d9;        /* クリーム色 */
-    --link-color: #000000;      /* リンク色 */
-    --gray-color: #777777;      /* 補助テキスト */
+    --text-color: #333333;
+    /* ダークグレー（真っ黒より読みやすい） */
+    --accent-color: #413b3b;
+    /* 真っ黒（強調用） */
+    --bg-color: #f9f0d9;
+    /* クリーム色 */
+    --link-color: #000000;
+    /* リンク色 */
+    --gray-color: #777777;
+    /* 補助テキスト */
     --font-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
 }
 
@@ -25,7 +37,8 @@ body {
     font-family: var(--font-base);
     color: var(--text-color);
     background-color: var(--bg-color);
-    line-height: 1.8; /* 行間を広めにとって読みやすく */
+    line-height: 1.8;
+    /* 行間を広めにとって読みやすく */
     word-wrap: break-word;
 }
 
@@ -36,7 +49,8 @@ a {
 }
 
 a:hover {
-    opacity: 0.6; /* マウスを乗せると少し薄くなる演出 */
+    opacity: 0.6;
+    /* マウスを乗せると少し薄くなる演出 */
 }
 
 /* 画像が親要素からはみ出さないようにする */
@@ -50,22 +64,28 @@ img {
    ------------------------------------------------------------------------- */
 #site-content,
 .site-footer {
-    max-width: 1000px; /* コンテンツ幅を1000pxに制限 */
-    margin: 0 auto;    /* 中央寄せ */
-    padding: 0 20px;   /* スマホで端にくっつかないように余白 */
+    max-width: 1000px;
+    /* コンテンツ幅を1000pxに制限 */
+    margin: 0 auto;
+    /* 中央寄せ */
+    padding: 0 20px;
+    /* スマホで端にくっつかないように余白 */
 }
 
 /* -------------------------------------------------------------------------
    3. ヘッダー (Header) - 全幅背景対応版
    ------------------------------------------------------------------------- */
 .site-header {
-    width: 100%;        /* 画面いっぱいに広げる */
-    position: relative; /* 背景画像の基準点 */
-    overflow: hidden;   /* はみ出し防止 */
+    width: 100%;
+    /* 画面いっぱいに広げる */
+    position: relative;
+    /* 背景画像の基準点 */
+    overflow: hidden;
+    /* はみ出し防止 */
     border-bottom: 1px solid #eee;
     margin-bottom: 60px;
     /* paddingは inner に移すのでここでは削除するか 0 に */
-    padding: 0; 
+    padding: 0;
 }
 
 /* 背景画像（親の .site-header に合わせて全幅になる） */
@@ -82,16 +102,20 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.2; /* 薄さの調整 */
+    opacity: 0.2;
+    /* 薄さの調整 */
     /* filter: grayscale(100%); */
 }
 
 /* ▼ 新しく作った中身用の箱（ここで幅を制限する） */
 .header-inner {
-    max-width: 1000px; /* コンテンツ幅 */
-    margin: 0 auto;    /* 中央寄せ */
-    padding: 60px 20px; /* 余白はここでつける */
-    
+    max-width: 1000px;
+    /* コンテンツ幅 */
+    margin: 0 auto;
+    /* 中央寄せ */
+    padding: 50px 10px;
+    /* 余白はここでつける */
+
     /* Flexboxの設定をここに移す */
     display: flex;
     justify-content: space-between;
@@ -114,7 +138,8 @@ img {
     line-height: 1.2;
     margin-left: 20px;
     margin-bottom: 0%;
-    letter-spacing: 0.05em; /* 文字間隔を少し広げてスタイリッシュに */
+    letter-spacing: 0.05em;
+    /* 文字間隔を少し広げてスタイリッシュに */
 }
 
 .site-description {
@@ -129,8 +154,11 @@ img {
 /* ロゴ画像の調整 */
 .custom-logo-link img {
     display: block;
-    max-height: 60px; /* ロゴの高さを60pxに制限（お好みで変更可） */
-    width: auto;      /* 横幅は自動調整 */
+    max-height: 60px;
+    border-radius: 15px;
+    /* ロゴの高さを60pxに制限（お好みで変更可） */
+    width: auto;
+    /* 横幅は自動調整 */
 }
 
 /* ロゴがあるときはサイトタイトルの文字を少し調整（念のため） */
@@ -143,7 +171,8 @@ img {
    4. メインコンテンツ (Main Content)
    ------------------------------------------------------------------------- */
 article {
-    margin-bottom: 80px; /* 記事ごとの間隔を広くとる */
+    margin-bottom: 80px;
+    /* 記事ごとの間隔を広くとる */
 }
 
 /* 記事タイトル */
@@ -158,7 +187,8 @@ article h2 {
     color: var(--gray-color);
     font-size: 0.85rem;
     margin-bottom: 20px;
-    font-family: monospace; /* 日付などを等幅フォントにしてアクセントに */
+    font-family: monospace;
+    /* 日付などを等幅フォントにしてアクセントに */
 }
 
 /* ページネーション */
@@ -187,7 +217,8 @@ article h2 {
     margin-top: 100px;
     padding-top: 40px;
     padding-bottom: 40px;
-    border-top: 4px solid var(--accent-color); /* 太い黒線で引き締める */
+    border-top: 4px solid var(--accent-color);
+    /* 太い黒線で引き締める */
     font-size: 0.8rem;
     text-align: center;
 }
@@ -199,26 +230,34 @@ article h2 {
 /* 記事を囲んだ親要素 */
 .post-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 1frを3回繰り返す＝3等分 */
-    gap: 40px; /* カード間の隙間 */
+    grid-template-columns: repeat(3, 1fr);
+    /* 1frを3回繰り返す＝3等分 */
+    gap: 40px;
+    /* カード間の隙間 */
     margin-bottom: 60px;
 }
 
 /* グリッド内の各記事（カード） */
 .post-grid article {
-    margin-bottom: 0; /* 以前の margin-bottom: 80px をリセット */
+    margin-bottom: 0;
+    /* 以前の margin-bottom: 80px をリセット */
     display: flex;
-    flex-direction: column; /* 中身を縦並びにする */
+    flex-direction: column;
+    /* 中身を縦並びにする */
 }
 
 /* 画像（サムネイル） */
 .post-thumbnail img {
-    width: 100%;       /* 親要素に合わせて横幅いっぱい */
-    height: 200px;     /* 高さを固定して不揃いを防ぐ */
-    object-fit: cover; /* トリミングして枠に収める */
+    width: 100%;
+    /* 親要素に合わせて横幅いっぱい */
+    height: 200px;
+    /* 高さを固定して不揃いを防ぐ */
+    object-fit: cover;
+    /* トリミングして枠に収める */
     display: block;
     margin-bottom: 15px;
-    border: 1px solid #eee; /* 薄い枠線で引き締める */
+    border: 1px solid #eee;
+    /* 薄い枠線で引き締める */
 }
 
 /* タイトルのサイズ調整（3列だと狭くなるので少し小さく） */
@@ -313,15 +352,18 @@ article h2 {
    ------------------------------------------------------------------------- */
 .page-content {
     background-color: #f9f0d9;
-    max-width: 800px; /* 記事より少し幅広でも読みやすい */
-    margin: 0 auto;   /* 中央寄せ */
+    max-width: 800px;
+    /* 記事より少し幅広でも読みやすい */
+    margin: 0 auto;
+    /* 中央寄せ */
     padding-top: 40px;
 }
 
 .page-content .entry-title {
     font-size: 2rem;
     margin-bottom: 40px;
-    text-align: center; /* タイトルは中央揃えが綺麗 */
+    text-align: center;
+    /* タイトルは中央揃えが綺麗 */
     padding-bottom: 20px;
     border-bottom: 1px solid #eee;
 }
@@ -360,12 +402,13 @@ article h2 {
 /* --- 共通設定 --- */
 .main-navigation ul {
     list-style: none;
-    margin-left: 30px;
+    margin-left: auto;
     padding: 0px;
 }
 
 .main-navigation a {
-    color: #625252; /* 文字は薄い黒 */
+    color: #625252;
+    /* 文字は薄い黒 */
     font-weight: bold;
     text-decoration: none;
     font-size: 0.9rem;
@@ -374,6 +417,7 @@ article h2 {
 
 /* --- PC表示 (769px以上) --- */
 @media (min-width: 769px) {
+
     /* ボタンは隠す */
     .menu-toggle {
         display: none;
@@ -382,11 +426,13 @@ article h2 {
     /* メニューを横並び */
     .main-navigation ul {
         display: flex;
-        gap: 40px;
+        gap: 20px;
         width: 100%;
     }
+
     .main-navigation li {
-        margin: 0; /* 余計な隙間を削除 */
+        margin: 0;
+        /* 余計な隙間を削除 */
     }
 
     /* ホバー時の下線アニメーション */
@@ -394,6 +440,7 @@ article h2 {
         position: relative;
         padding-bottom: 5px;
     }
+
     .main-navigation a::after {
         content: '';
         position: absolute;
@@ -404,6 +451,7 @@ article h2 {
         background-color: #000;
         transition: width 0.3s ease;
     }
+
     .main-navigation a:hover::after {
         width: 100%;
     }
@@ -411,10 +459,10 @@ article h2 {
 
 /* --- スマホ表示 (768px以下) --- */
 @media (max-width: 768px) {
-    
-    /* ハンバーガーボタンのデザイン */
+
+    /* ハンバーガーボタン（位置はさっき調整したまま） */
     .menu-toggle {
-        display: block; /* 表示する */
+        display: block;
         background: transparent;
         border: none;
         cursor: pointer;
@@ -422,61 +470,160 @@ article h2 {
         height: 24px;
         position: relative;
         padding: 0;
-        z-index: 1001; /* メニューより手前に */
-        margin-left: auto; /* 右寄せ */
+        /* ▼重要：メニュー画面よりさらに手前に表示させて、閉じるボタンとして機能させる */
+        z-index: 2000;
+        margin-left: auto;
     }
 
-    /* 3本線の描画 */
+    /* 3本線の描画（色は黒） */
     .menu-toggle .bar {
         display: block;
         width: 100%;
         height: 2px;
-        background-color: #000;
+        background-color: #625252;
         position: absolute;
         transition: 0.3s;
         left: 0;
     }
-    .menu-toggle .bar:nth-child(1) { top: 0; }
-    .menu-toggle .bar:nth-child(2) { top: 11px; }
-    .menu-toggle .bar:nth-child(3) { bottom: 0; }
 
-    /* メニュー本体（最初は隠す） */
+    .menu-toggle .bar:nth-child(1) {
+        top: 0;
+    }
+
+    .menu-toggle .bar:nth-child(2) {
+        top: 11px;
+    }
+
+    .menu-toggle .bar:nth-child(3) {
+        bottom: 0;
+    }
+
+    /* ▼▼▼ ここからがフルスクリーンメニューの設定 ▼▼▼ */
     .main-navigation ul {
-        display: none; /* JavaScriptでクラスが付いたら表示 */
-        flex-direction: column;
-        position: absolute;
-        top: 100%; /* ヘッダーのすぐ下に出す */
+        display: none;
+        /* 普段は隠す */
+
+        /* 画面全体を覆う設定 */
+        position: fixed;
+        /* 固定配置 */
+        top: 0;
         left: 0;
         width: 100%;
-        background-color: #fff; /* 背景は白 */
-        padding: 20px 0;
-        border-top: 1px solid #eee;
-        border-bottom: 1px solid #eee;
-        z-index: 1000;
-        text-align: center;
-        gap: 20px;
+        height: 100vh;
+        /* 画面の高さ100% */
+        background-color: rgba(255, 255, 255, 0.95);
+        /* 背景白（少しだけ透けさせる） */
+
+        /* 中身をど真ん中に持ってくる設定 */
+        flex-direction: column;
+        justify-content: center;
+        /* 縦の真ん中 */
+        align-items: center;
+        /* 横の真ん中 */
+
+        z-index: 1500;
+        /* ヘッダーより手前、ボタンより奥 */
+        padding: 0;
+        margin: 0;
     }
 
-    /* 開いた状態のデザイン (.toggled クラスが付いた時) */
+    /* 開いた状態 (.toggled) */
     .main-navigation.toggled ul {
-        display: flex; /* 表示する */
+        display: flex;
+        /* 表示！ */
     }
 
-    /* メニュー項目の間隔 */
+    /* メニューの文字を大きく、押しやすく */
     .main-navigation li {
-        margin: 10px 0;
+        margin: 20px 0;
+        /* 上下の間隔を広げる */
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        /* アニメーション用：最初は透明に */
+        animation: fadeIn 0.5s forwards;
+        /* ふわっと表示 */
     }
 
-    /* ×印アニメーション */
+    /* 文字のサイズ */
+    .main-navigation a {
+        font-size: 1.5rem;
+        /* PCよりかなり大きくする */
+        color: #625252;
+        display: block;
+        padding: 10px;
+    }
+
+    /* メニュー項目が順番に出るアニメーション（オシャレ演出） */
+    .main-navigation.toggled li:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .main-navigation.toggled li:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .main-navigation.toggled li:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .main-navigation.toggled li:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    .main-navigation.toggled li:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    /* --- ボタンのアニメーション（×印） --- */
     .main-navigation.toggled .menu-toggle .bar:nth-child(1) {
         transform: rotate(45deg);
         top: 11px;
     }
+
     .main-navigation.toggled .menu-toggle .bar:nth-child(2) {
         opacity: 0;
     }
+
     .main-navigation.toggled .menu-toggle .bar:nth-child(3) {
         transform: rotate(-45deg);
         bottom: 11px;
+    }
+}
+
+/* アニメーションの定義 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* -----------------------------------------------------------
+   レスポンシブ調整：画面が少し狭いPC・タブレット横向き用
+   ----------------------------------------------------------- */
+@media (min-width: 769px) and (max-width: 1100px) {
+
+    /* 1. ヘッダーの余白を少し詰める */
+    .header-inner {
+        padding: 60px 20px;
+        /* 左右の余白はキープ */
+    }
+
+    /* 2. メニュー項目同士の間隔（gap）を狭くする */
+    .main-navigation ul {
+        gap: 15px;
+        /* 40px からギュッと狭くする */
+    }
+
+    /* 3. それでも入らない場合、文字サイズを少し下げる */
+    .main-navigation a {
+        font-size: 0.8rem;
+        /* 0.9rem から少し小さく */
     }
 }
