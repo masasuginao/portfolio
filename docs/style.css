@@ -165,7 +165,6 @@ img {
 .site-branding {
     display: flex;
     align-items: center;
-    float: left;
     gap: 15px;
 }
 
