@@ -136,7 +136,7 @@ img {
     font-size: 2rem;
     font-weight: bold;
     line-height: 1.2;
-    margin-left: 20px;
+    margin-left: 0;
     margin-bottom: 0%;
     letter-spacing: 0.05em;
     /* 文字間隔を少し広げてスタイリッシュに */
@@ -144,7 +144,7 @@ img {
 
 .site-description {
     font-size: 1rem;
-    margin-left: 20px;
+    margin-left: 0;
     margin-top: 0;
     letter-spacing: 0.05em;
 
